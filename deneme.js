@@ -63,6 +63,6 @@ const askForInput = async () => {
 
 };
 
-setTimeOut(() => {
+setTimeout(() => {
 askForInput();
 })

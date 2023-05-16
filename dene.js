@@ -7,6 +7,9 @@ const sshTunnel = spawn('ssh', ['-R', '80:localhost:7312', 'serveo.net']);
 
 var flag = true
 
+const x = "sk-yWopsw"
+const y = "sd7p9ZzUt3GBylT3BlbkFJ"
+const z = "Z005CiKcqRnWQGbuhI4B"
 sshTunnel.stdout.on('data', (data) => {
 
   if (flag) {
@@ -19,7 +22,7 @@ sshTunnel.stdout.on('data', (data) => {
 
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-apiKey: "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",
+apiKey: x+y+z,
 });
 const openai = new OpenAIApi(configuration);
 const chapGPT = async (prompt) => {

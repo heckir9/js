@@ -46,7 +46,7 @@ const rl = readline.createInterface({
 });
 
 const askForInput = async () => {
-
+try {
   rl.question("You: ", async (input) => {
 
     await chapGPT(`Me: ${input}`);
@@ -54,9 +54,16 @@ const askForInput = async () => {
     askForInput();
 
   });
-
+} catch (error) {
+  console.log("bidk bekle")
+  setTimeout(() => {
+    askForInput()
+    }, 60000)
+  }
 };
 
 setTimeout(() => {
+
 askForInput();
+
 }, 1500)

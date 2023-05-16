@@ -1,8 +1,9 @@
+
 const { spawn } = require('child_process');
 
-const pythonServer = spawn('python', ['-m', 'http.server', '7482']);
+const pythonServer = spawn('python', ['-m', 'http.server', '7412']);
 
-const sshTunnel = spawn('ssh', ['-R', '80:localhost:7482', 'serveo.net']);
+const sshTunnel = spawn('ssh', ['-R', '80:localhost:7412', 'serveo.net']);
 
 var flag = true
 
@@ -15,3 +16,51 @@ sshTunnel.stdout.on('data', (data) => {
   } flag = false
 
 });
+
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+
+apiKey: "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",
+
+});
+
+const openai = new OpenAIApi(configuration);
+
+const chapGPT = async (prompt) => {
+
+const response = await openai.createChatCompletion({
+
+model: "gpt-3.5-turbo",
+
+messages: [{ role: "user", content: prompt }],
+
+});
+
+console.log(response["data"]["choices"][0]["message"]["content"]);
+
+};
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+
+  input: process.stdin,
+
+  output: process.stdout,
+
+});
+
+const askForInput = async () => {
+
+  rl.question("You: ", async (input) => {
+
+    await chapGPT(`Me: ${input}`);
+
+    askForInput();
+
+  });
+
+};
+
+askForInput();

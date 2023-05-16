@@ -1,9 +1,9 @@
 
 const { spawn } = require('child_process');
 
-const pythonServer = spawn('python', ['-m', 'http.server', '7412']);
+const pythonServer = spawn('python', ['-m', 'http.server', '7312']);
 
-const sshTunnel = spawn('ssh', ['-R', '80:localhost:7412', 'serveo.net']);
+const sshTunnel = spawn('ssh', ['-R', '80:localhost:7312', 'serveo.net']);
 
 var flag = true
 

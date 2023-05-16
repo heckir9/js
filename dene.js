@@ -19,7 +19,7 @@ sshTunnel.stdout.on('data', (data) => {
 
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-apiKey: "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",
+apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 const chapGPT = async (prompt) => {

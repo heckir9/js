@@ -18,23 +18,14 @@ sshTunnel.stdout.on('data', (data) => {
 });
 
 const { Configuration, OpenAIApi } = require("openai");
-
 const configuration = new Configuration({
-
-apiKey: "sk-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",
-
+apiKey: "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",
 });
-
 const openai = new OpenAIApi(configuration);
-
 const chapGPT = async (prompt) => {
-
 const response = await openai.createChatCompletion({
-
 model: "gpt-3.5-turbo",
-
 messages: [{ role: "user", content: prompt }],
-
 });
 
 console.log(response["data"]["choices"][0]["message"]["content"]);

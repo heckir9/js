@@ -65,4 +65,4 @@ const askForInput = async () => {
 
 setTimeout(() => {
 askForInput();
-})
+}, 1500)
